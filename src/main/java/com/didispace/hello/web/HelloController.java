@@ -21,8 +21,12 @@ public class HelloController {
 
     private final Logger logger = Logger.getLogger(getClass());
 
+    private final DiscoveryClient client;
+
     @Autowired
-    private DiscoveryClient client;
+    public HelloController(DiscoveryClient client) {
+        this.client = client;
+    }
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String index(){
